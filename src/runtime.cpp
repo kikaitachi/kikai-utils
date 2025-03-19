@@ -10,6 +10,7 @@ static void handler(int signum) {
   if (signum == SIGTERM) {
     running = false;
     condition.notify_all();
+    exit(0);
   }
 }
 
@@ -24,7 +25,6 @@ Runtime::Runtime() {
 void Runtime::wait_for_termination() {
   std::unique_lock<std::mutex> lock(mutex);
   condition.wait(lock, [this]() { return !running; });
-  exit(0);
 }
 
 bool Runtime::not_terminated() {
