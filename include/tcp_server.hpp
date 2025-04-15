@@ -7,7 +7,7 @@ class TCPServer {
  public:
   TCPServer(
     int port,
-    std::function<void(size_t size, void* data, std::function<void(size_t size, void* data)> reply)> on_message
+    std::function<void(const size_t size, const void* data, std::function<void(const size_t size, const void* data)> reply)> on_message
   );
 };
 
