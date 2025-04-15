@@ -8,7 +8,7 @@
 #include <netdb.h>
 #include <unistd.h>
 
-TCPSever::TCPSever(
+TCPServer::TCPServer(
   int port,
   std::function<void(size_t size, void* data, std::function<void(size_t size, void* data)> reply)> on_message
 ) {

@@ -3,9 +3,9 @@
 
 #include <functional>
 
-class TCPSever {
+class TCPServer {
  public:
-  TCPSever(
+  TCPServer(
     int port,
     std::function<void(size_t size, void* data, std::function<void(size_t size, void* data)> reply)> on_message
   );
