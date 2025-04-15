@@ -9,7 +9,7 @@
 
 TCPServer::TCPServer(
   int port,
-  std::function<void(size_t size, void* data, std::function<void(size_t size, void* data)> reply)> on_message
+  std::function<void(const size_t size, const void* data, std::function<void(const size_t size, const void* data)> reply)> on_message
 ) {
   int server_fd = socket(AF_INET, SOCK_STREAM, 0);
   if (server_fd == -1) {
