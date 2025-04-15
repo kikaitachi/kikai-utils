@@ -60,7 +60,7 @@ TCPServer::TCPServer(
       }
       offset += result;
     }
-    on_message(len, buffer, [client_fd](size_t size, void* data) {
+    on_message(len, buffer, [client_fd](const size_t size, const void* data) {
       if (write(client_fd, data, size) != size) {
         logger::last("Failed to write message size");
         close(client_fd);
