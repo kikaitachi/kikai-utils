@@ -61,7 +61,7 @@ TCPServer::TCPServer(
       offset += result;
     }
     on_message(len, buffer, [client_fd](const size_t size, const void* data) {
-      if (write(client_fd, data, size) != size) {
+      if (write(client_fd, &size, 4) != 4) {
         logger::last("Failed to write message size");
         close(client_fd);
         return;
